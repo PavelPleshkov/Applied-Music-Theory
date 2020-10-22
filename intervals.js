@@ -5,8 +5,11 @@ function intervalConstruction(arr) {
     let intervalsArr = [];
     let semitones = {};
     const inputNoteName = arr[1];
-    if (typeof inputNoteName != 'String') throw new Error(`${inputNoteName} note is not a 'String'`);
-    if (typeof interval != 'String') throw new Error(`${interval} interval is not a 'String'`);
+    arr.forEach(item => {
+        if (typeof item != 'string') throw new Error(`${item} in input array is not a 'string'`);
+    });
+    // if (typeof inputNoteName != 'string') throw new Error(`${inputNoteName} note is not a 'string'`);
+    // if (typeof interval != 'string') throw new Error(`${interval} interval is not a 'string'`);
     const regExpInputNote = /^[A-G](#{0,1}|b{0,1})$/;
     const inputNaturalNoteName = inputNoteName.charAt(0);
     const octave = 'C C#/Db D D#/Eb E F F#/Gb G G#/Ab A A#/Bb B';
@@ -110,6 +113,9 @@ function intervalIdentification(arr) {
     const endNote = arr[1];
     const regExpInput = /^[A-G](#{0,2}|b{0,2})$/;
     const octave = 'C C#/Db D D#/Eb E F F#/Gb G G#/Ab A A#/Bb B';
+    arr.forEach(item => {
+        if (typeof item != 'string') throw new Error(`${item} in input array is not a 'string'`);
+    });
     const octaveArr = octave.split(' ');
     const naturalInterval = octave.split(' ').filter(note => note.length === 1);
     const startIntervalIndex = naturalInterval.findIndex(item => item === startNote.charAt(0));
@@ -207,3 +213,58 @@ function intervalIdentification(arr) {
     return (regExpOutput.test(outputInterval) ? outputInterval : new Error('Cannot identify the interval'));
 }
 
+let inputArr1 = ['M3', 'A', 'asc'];//C#
+// inputArr1 = ['P5', 'C'];//G
+// inputArr1 = ['m2', 'G', 'dsc'];//F#
+// inputArr1 = ['m3', 'C', 'dsc'];//A
+// inputArr1 = ['m7', 'Fb', 'dsc'];//Gb
+// inputArr1 = ['m7', 'Fb', 'asc'];//Ebb
+// inputArr1 = ['m2', 'Fb', 'asc'];//Gbb
+// inputArr1 = ['P5', 'A#', 'asc'];//E#
+// inputArr1 = ['m6', 'Ab', 'asc'];//Fb
+// inputArr1 = ['P5', 'G', 'dsc'];//C
+// inputArr1 = ['P8', 'A', 'dsc'];//A
+// inputArr1 = ['1', 'M3', 'A', 'asc'];//error
+// inputArr1 = ['m5', 'A'];//error
+// inputArr1 = ['m7', 'Abb'];//error
+// inputArr1 = ['m7', 6];//error
+// inputArr1 = [5, 'A'];//error
+
+//Test Data
+// inputArr1 = ['M2', 'C', 'asc'];//D
+// inputArr1 = ['P5', 'B', 'asc'];//F#
+// inputArr1 = ['m2', 'Bb', 'dsc'];//A
+// inputArr1 = ['M3', 'Cb', 'dsc'];//Abb
+// inputArr1 = ['P4', 'G#', 'dsc'];//D#
+// inputArr1 = ['m3', 'B', 'dsc'];//G#
+// inputArr1 = ['m2', 'Fb', 'asc'];//Gbb
+// inputArr1 = ['M2', 'E#', 'dsc'];//D#
+// inputArr1 = ['P4', 'E', 'dsc'];//B
+// inputArr1 = ['m2', 'D#', 'asc'];//E
+// inputArr1 = ['M7', 'G', 'asc'];//F#
+
+console.log(intervalConstruction(inputArr1));
+
+let inputArr2 = ['C', 'D'];//M2
+// inputArr2 = ['C#', 'Fb'];//m4
+inputArr2 = [6, 'D']//error
+
+//Test Data
+// inputArr2 = ['C', 'D'];// M2
+// inputArr2 = ['B', 'F#', 'asc'];//P5
+// inputArr2 = ['Fb', 'Gbb'];//m2
+// inputArr2 = ['G', 'F#', 'asc'];// M7
+// inputArr2 = ['Bb', 'A', 'dsc'];//m2
+// inputArr2 = ['Cb', 'Abb', 'dsc'];//M3
+// inputArr2 = ['G#', 'D#', 'dsc'];//P4
+// inputArr2 = ['E', 'B', 'dsc'];//P4
+// inputArr2 = ['E#', 'D#', 'dsc'];//M2
+// inputArr2 = ['B', 'G#', 'dsc'];//m3
+
+
+console.log(intervalIdentification(inputArr2));
+
+// let inputArr2 = ['C#', 'Fb'];//m4
+// console.log(intervalIdentification(inputArr2));
+
+//Test case with ['C#', 'Fb'] input array throw the error
