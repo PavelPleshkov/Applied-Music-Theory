@@ -60,7 +60,7 @@ Courses:
     - "Javascript Level 1. Interactive web applications"
 - Lots of self-education
 
-Also I study JavaScript on learn.javascript.ru and others
+Also I study JavaScript on [learn.javascript.ru](https://learn.javascript.ru/) and others
 
 ## English
 I studied English in courses International House for 1,5 years. Completed pre-intermediate (A2)(Certificate no: 0423/18), partially Intermediate (B1)
