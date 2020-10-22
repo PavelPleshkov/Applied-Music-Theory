@@ -43,9 +43,9 @@ Certificates from courses Geekbrains Mail.Ru Group:
 - [Javascript Level 1](https://geekbrains.ru/certificates/599427.en)
 
 Some projects from courses on my [GitHub](https://github.com/PavelPleshkov):
-- [Video&Forms](https://pavelpleshkov.github.io/productpage/) with video on the background, adaptive
 - [Serf Shop](https://pavelpleshkov.github.io/serfhouse/index.html) with some product pages like [this board](https://pavelpleshkov.github.io/serfhouse/productpage.html), [this](https://pavelpleshkov.github.io/serfhouse/productpage-2.html) or [this](https://pavelpleshkov.github.io/serfhouse/productpage-3.html), [catalog](https://pavelpleshkov.github.io/serfhouse/catalog.html) and [Contacts](https://pavelpleshkov.github.io/serfhouse/contact.html) with interactive map on the background
 - [Animation](https://pavelpleshkov.github.io/animation/) with moving image in header(stop it by mouse on it), appearing sections after scroll and something like automatic slider written with help of CSS-animation and no JS, adaptive
+- [Video&Forms](https://pavelpleshkov.github.io/productpage/) with video on the background, adaptive
 - [Adaptive&Bootstrap](https://pavelpleshkov.github.io/projectpage/) the name speaks for itself:)
 
 ## Education
