@@ -21,7 +21,7 @@ My resume on [tut.by](https://jobs.tut.by/resume/6ed3d9d1ff043e7b2e0039ed1f6f6b4
 - Adaptive valid layout;
 - Bootstrap 3/4;
 - BEM;
-- Adobe Photoshop using Zeplin, Adobe Assets;
+- Adobe Photoshop using Zeplin, Adobe Assets, Figma;
 - browser developer tools;
 - little experience in developing extensions for Chrome
 
