@@ -8,8 +8,6 @@ function intervalConstruction(arr) {
     arr.forEach(item => {
         if (typeof item != 'string') throw new Error(`${item} in input array is not a 'string'`);
     });
-    // if (typeof inputNoteName != 'string') throw new Error(`${inputNoteName} note is not a 'string'`);
-    // if (typeof interval != 'string') throw new Error(`${interval} interval is not a 'string'`);
     const regExpInputNote = /^[A-G](#{0,1}|b{0,1})$/;
     const inputNaturalNoteName = inputNoteName.charAt(0);
     const octave = 'C C#/Db D D#/Eb E F F#/Gb G G#/Ab A A#/Bb B';
@@ -35,16 +33,16 @@ function intervalConstruction(arr) {
         }
         intervalsArr.push([intervals[i], i + 1]);
     }
-    console.log(intervalsArr);
+    // console.log(intervalsArr);
 
     for (let i = 0; i < intervalsArr.length; i++) {
         semitones[intervalsArr[i][0]] = intervalsArr[i][1];
     }
-    console.log(semitones);
+    // console.log(semitones);
 
     let startIntervalIndex = naturalInterval.findIndex(item => item === inputNaturalNoteName);
     let endIntervalIndex;
-    console.log(`Note ${inputNoteName} with interval ${interval} has start natural interval index: ${startIntervalIndex}`);
+    // console.log(`Note ${inputNoteName} with interval ${interval} has start natural interval index: ${startIntervalIndex}`);
     let startSemitoneIndex = octaveArr.findIndex(item => item === inputNaturalNoteName);
     let endSemitoneIndex;
 
@@ -75,7 +73,7 @@ function intervalConstruction(arr) {
             endSemitoneIndex = octaveArr.length - Math.abs(startSemitoneIndex - semitones[interval]);
         }
     }
-    console.log(`End natural interval index: ${endIntervalIndex}\nNote name is: ${naturalInterval[endIntervalIndex]}`);
+    // console.log(`End natural interval index: ${endIntervalIndex}\nNote name is: ${naturalInterval[endIntervalIndex]}`);
 
     outputNaturalNoteName = naturalInterval[endIntervalIndex];
     
@@ -101,7 +99,7 @@ function intervalConstruction(arr) {
             break;
     }
 
-    console.log(`${inputNoteName} startSemitoneIndex in octave: ${startSemitoneIndex}\ninterval: ${interval} has semitone: ${semitones[interval]}\nendSemitoneIndex in octave: ${endSemitoneIndex}`);
+    // console.log(`${inputNoteName} startSemitoneIndex in octave: ${startSemitoneIndex}\ninterval: ${interval} has semitone: ${semitones[interval]}\nendSemitoneIndex in octave: ${endSemitoneIndex}`);
 
     outputNoteName = `${outputNaturalNoteName}${outputAccidental}`;
 
@@ -120,7 +118,7 @@ function intervalIdentification(arr) {
     const naturalInterval = octave.split(' ').filter(note => note.length === 1);
     const startIntervalIndex = naturalInterval.findIndex(item => item === startNote.charAt(0));
     const endIntervalIndex = naturalInterval.findIndex(item => item === endNote.charAt(0));
-    console.log(`startIntervalIndex: ${startIntervalIndex}\nendIntervalIndex: ${endIntervalIndex}`);
+    // console.log(`startIntervalIndex: ${startIntervalIndex}\nendIntervalIndex: ${endIntervalIndex}`);
     let startSemitoneIndex = octaveArr.findIndex(item => item === startNote.charAt(0));
     let endSemitoneIndex = octaveArr.findIndex(item => item === endNote.charAt(0));
     let semitone;
@@ -194,10 +192,10 @@ function intervalIdentification(arr) {
         }
     }
     
-    console.log(`degree: ${degree}`);
-    console.log(`start note ${startNote} has startSemitoneIndex: ${startSemitoneIndex}`);
-    console.log(`end note ${endNote} has endSemitoneIndex: ${endSemitoneIndex}`);
-    console.log(`semitone: ${semitone}`);
+    // console.log(`degree: ${degree}`);
+    // console.log(`start note ${startNote} has startSemitoneIndex: ${startSemitoneIndex}`);
+    // console.log(`end note ${endNote} has endSemitoneIndex: ${endSemitoneIndex}`);
+    // console.log(`semitone: ${semitone}`);
 
     if (semitone === 1 || semitone === 3 || semitone === 8 || semitone === 10) {
         intervalLetter += 'm';
@@ -206,65 +204,15 @@ function intervalIdentification(arr) {
     } else if ( semitone === 5 || semitone === 7 || semitone === 12) {
         intervalLetter += 'P';
     }
-    console.log(`interval letter: ${intervalLetter}`);
+    // console.log(`interval letter: ${intervalLetter}`);
 
     outputInterval = `${intervalLetter}${degree}`
     
     return (regExpOutput.test(outputInterval) ? outputInterval : new Error('Cannot identify the interval'));
 }
 
-let inputArr1 = ['M3', 'A', 'asc'];//C#
-// inputArr1 = ['P5', 'C'];//G
-// inputArr1 = ['m2', 'G', 'dsc'];//F#
-// inputArr1 = ['m3', 'C', 'dsc'];//A
-// inputArr1 = ['m7', 'Fb', 'dsc'];//Gb
-// inputArr1 = ['m7', 'Fb', 'asc'];//Ebb
-// inputArr1 = ['m2', 'Fb', 'asc'];//Gbb
-// inputArr1 = ['P5', 'A#', 'asc'];//E#
-// inputArr1 = ['m6', 'Ab', 'asc'];//Fb
-// inputArr1 = ['P5', 'G', 'dsc'];//C
-// inputArr1 = ['P8', 'A', 'dsc'];//A
-// inputArr1 = ['1', 'M3', 'A', 'asc'];//error
-// inputArr1 = ['m5', 'A'];//error
-// inputArr1 = ['m7', 'Abb'];//error
-// inputArr1 = ['m7', 6];//error
-// inputArr1 = [5, 'A'];//error
-
-//Test Data
-// inputArr1 = ['M2', 'C', 'asc'];//D
-// inputArr1 = ['P5', 'B', 'asc'];//F#
-// inputArr1 = ['m2', 'Bb', 'dsc'];//A
-// inputArr1 = ['M3', 'Cb', 'dsc'];//Abb
-// inputArr1 = ['P4', 'G#', 'dsc'];//D#
-// inputArr1 = ['m3', 'B', 'dsc'];//G#
-// inputArr1 = ['m2', 'Fb', 'asc'];//Gbb
-// inputArr1 = ['M2', 'E#', 'dsc'];//D#
-// inputArr1 = ['P4', 'E', 'dsc'];//B
-// inputArr1 = ['m2', 'D#', 'asc'];//E
-// inputArr1 = ['M7', 'G', 'asc'];//F#
-
-console.log(intervalConstruction(inputArr1));
-
-let inputArr2 = ['C', 'D'];//M2
-// inputArr2 = ['C#', 'Fb'];//m4
-inputArr2 = [6, 'D']//error
-
-//Test Data
-// inputArr2 = ['C', 'D'];// M2
-// inputArr2 = ['B', 'F#', 'asc'];//P5
-// inputArr2 = ['Fb', 'Gbb'];//m2
-// inputArr2 = ['G', 'F#', 'asc'];// M7
-// inputArr2 = ['Bb', 'A', 'dsc'];//m2
-// inputArr2 = ['Cb', 'Abb', 'dsc'];//M3
-// inputArr2 = ['G#', 'D#', 'dsc'];//P4
-// inputArr2 = ['E', 'B', 'dsc'];//P4
-// inputArr2 = ['E#', 'D#', 'dsc'];//M2
-// inputArr2 = ['B', 'G#', 'dsc'];//m3
-
-
-console.log(intervalIdentification(inputArr2));
+//Intervals between some notes can't be identificate - get an error 'Cannot identify the interval'.
+//For example: Test case with ['C#', 'Fb'] input array throw the error because we have a Fourth (4 interval with 3 semitones) in output, but it isn't an allowed value: Perfect fourth(P4 with 5 semitones) from allowed intervals(m2, M2, m3, M3, P4, P5, m6, M6, m7, M7, P8) in task:
 
 // let inputArr2 = ['C#', 'Fb'];//m4
 // console.log(intervalIdentification(inputArr2));
-
-//Test case with ['C#', 'Fb'] input array throw the error
