@@ -86,9 +86,11 @@ function intervalConstruction(arr) {
             outputAccidental = 'bb';
             break;
         case -1:
+        case octaveArr.length -1:
             outputAccidental = 'b';
             break;
         case 1:
+        case -(octaveArr.length - 1):
             outputAccidental = '#';
             break;
         case 2:
@@ -108,6 +110,8 @@ function intervalConstruction(arr) {
 }
 
 function intervalIdentification(arr) {
+    if (arr.length < 2 || arr.length > 3) throw new Error('Illegal number of elements in input array');
+
     const startNote = arr[0];
     const endNote = arr[1];
     const regExpInput = /^[A-G](#{0,2}|b{0,2})$/;
@@ -131,7 +135,6 @@ function intervalIdentification(arr) {
 
     if (!regExpInput.test(startNote)) throw new Error(`Illegal start note name: '${startNote}'`);
     if (!regExpInput.test(endNote)) throw new Error(`Illegal end note name: '${endNote}'`);
-    if (arr.length < 2 || arr.length > 3) throw new Error('Illegal number of elements in input array');
     if (arr.length === 2) arr.push('asc');
 
     switch (startNote.slice(1)) {
@@ -217,7 +220,3 @@ function intervalIdentification(arr) {
 
 // let inputArr2 = ['C#', 'Fb'];//m4
 // console.log(intervalIdentification(inputArr2));
-
-// let inputArr1 = ['M6', 'D#', 'asc'];
-// inputArr1 = ['M6, D#, asc'];
-// console.log(intervalConstruction(inputArr1));
