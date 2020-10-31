@@ -86,7 +86,7 @@ function intervalConstruction(arr) {
             outputAccidental = 'bb';
             break;
         case -1:
-        case octaveArr.length -1:
+        case octaveArr.length - 1:
             outputAccidental = 'b';
             break;
         case 1:
