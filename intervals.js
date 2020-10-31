@@ -1,4 +1,6 @@
 function intervalConstruction(arr) {
+    if (arr.length < 2 || arr.length > 3) throw new Error('Illegal number of elements in input array');
+
     const interval = arr[0];
     const regExpInputInterval = /[mM][2367]|P[458]/;
     let intervals = 'm2, M2, m3, M3, P4, P5, m6, M6, m7, M7, P8';
@@ -20,7 +22,6 @@ function intervalConstruction(arr) {
     let outputNoteName = '';
     const regExpOutput = /^[A-G](#{0,2}|b{0,2})$/;
 
-    if (arr.length < 2 || arr.length > 3) throw new Error('Illegal number of elements in input array');
     if (!regExpInputInterval.test(interval)) throw new Error(`Illegal interval name: '${interval}' in input array`);
     if (!regExpInputNote.test(inputNoteName)) throw new Error(`Illegal note name: '${inputNoteName}' in input array`);
     if (arr.length === 2) arr.push('asc');
@@ -216,3 +217,7 @@ function intervalIdentification(arr) {
 
 // let inputArr2 = ['C#', 'Fb'];//m4
 // console.log(intervalIdentification(inputArr2));
+
+// let inputArr1 = ['M6', 'D#', 'asc'];
+// inputArr1 = ['M6, D#, asc'];
+// console.log(intervalConstruction(inputArr1));
