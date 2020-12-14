@@ -52,6 +52,7 @@ m7 - Minor Seventh - 10 semitones, 7 degrees <br>
 M7 - Major Seventh - 11 semitones, 7 degrees <br>
 P8 - Perfect Octave - 12 semitones, 8 degrees <br>
 Your task is to implement two functions that'll work with intervals: one will construct an interval and the second will identify the interval. <br>
+
 ### Requirements:
 **intervalConstruction**
 - The function 'intervalConstruction' must take an array of strings as input and return a string.
