@@ -94,6 +94,7 @@ Cbb Cb C C# C## Dbb Db D D# D## Ebb Eb E E# E## Fbb Fb F F# F## Gbb Gb G G# G## 
 ['C', 'D'] - find an ascending interval between C and D <br>
 ['C#', 'Fb'] - find an ascending interval between C# and Fb <br>
 ['A', 'G#', 'asc'] - find an ascending interval between A and G# <br>
+
 ### Notes:
 #### **itervalIdentification()**
 Intervals between some notes can't be identificate - get an error 'Cannot identify the interval'.
