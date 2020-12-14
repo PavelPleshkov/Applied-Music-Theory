@@ -54,6 +54,7 @@ P8 - Perfect Octave - 12 semitones, 8 degrees <br>
 Your task is to implement two functions that'll work with intervals: one will construct an interval and the second will identify the interval. <br>
 
 ### Requirements:
+
 **intervalConstruction**
 - The function 'intervalConstruction' must take an array of strings as input and return a string.
 - An array contains three or two elements.
@@ -65,6 +66,7 @@ Cbb Cb C C# C## Dbb Db D D# D## Ebb Eb E E# E## Fbb Fb F F# F## Gbb Gb G G# G## 
 - If there are more or fewer elements in the input array, an exception should be thrown: "Illegal number of elements in input array"
 Convention: ['a', 'b'] here means an array of strings
 <br>
+
 **Input examples and meaning:** <br>
 Please note: The data your function will get will look like an array of strings as defined in your language. No additional parsing is needed! The form ['', ''] is just a convention! <br>
 The following notes are allowed in input: <br>
@@ -76,6 +78,7 @@ m2 M2 m3 M3 P4 P5 m6 M6 m7 M7 P8 <br>
 ['m7, 'Fb', 'dsc'] - build an descending m7 interval starting from Fb <br>
 ['P5', 'C'] - build an ascending P5 interval starting from C <br>
 ['P4', 'E#'] - build an ascending P4 interval starting from E# <br>
+
 **intervalIdentification** <br>
 - The function 'intervalIdentification' must take an array of strings as input and return a string.
 - An array contains three or two elements.
@@ -87,6 +90,7 @@ m2 M2 m3 M3 P4 P5 m6 M6 m7 M7 P8
 - If the interval does not fit a description, an exception should be thrown: "Cannot identify the interval".
 Convention: ['a', 'b'] here means an array of strings
 <br>
+
 **Input examples and meaning:** <br>
 Please note: Tha data your function will get will look like an array of strings as defined in your language. No additional parsing is needed! The form ['', ''] is just a convention! <br>
 The following notes are allowed in input: <br>
